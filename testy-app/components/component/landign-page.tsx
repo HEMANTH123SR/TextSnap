@@ -4,7 +4,8 @@
  */
 import Link from "next/link";
 import { FcMultipleCameras } from "react-icons/fc";
-
+import TextToImageLandingPageImage from "@/public/text-to-image.png";
+import Image from "next/image";
 export function LandignPage() {
   return (
     <>
@@ -42,22 +43,25 @@ export function LandignPage() {
       </header>
       <section className="w-full py-12">
         <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-            <img
-              alt="Hero"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-bottom sm:w-full lg:order-last lg:aspect-square"
-              height="550"
-              src="/placeholder.svg"
-              width="550"
+          <div
+            className="flex flex-col justify-center items-center gap-16 xl:gap-6 w-full h-full"
+            style={{ height: "70vh" }}
+          >
+            <Image
+              src={TextToImageLandingPageImage}
+              alt={"Hero Gif"}
+              width={"600"}
+              height={"600"}
             />
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Welcome to Acme Inc.
+                  Welcome to TextSnap Inc.
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                   We are committed to building the best platform for your
-                  business.
+                  business to capture your thoughts with TextSnap. Simply type,
+                  click, and download.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
