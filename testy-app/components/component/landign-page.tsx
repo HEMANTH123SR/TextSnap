@@ -4,7 +4,7 @@ import Image from "next/image";
 export function LandignPage() {
   return (
     <>
-      <section className="w-full  px-5">
+      <section className="w-full  py-16">
         <div className="container">
           <div className="flex flex-col items-center justify-center gap-14 xl:gap-5 space-y-10 w-full xl:h-screen">
             <Image
