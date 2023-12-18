@@ -12,7 +12,14 @@ import {
 import { toPng } from "html-to-image";
 
 export function TextEditor() {
-  // const [textColourm,setTextColour]=useState();
+  enum TextColour {
+    
+  }
+
+  const [textColour, setTextColour] = useState();
+  const [textFont, setTextFont] = useState();
+  const [fontSize, setFontSize] = useState();
+  const [background, setBackground] = useState();
 
   let ref = useRef<HTMLDivElement>(null);
   const downloadDivToPng = useCallback(() => {
