@@ -4,9 +4,9 @@ import Image from "next/image";
 export function LandignPage() {
   return (
     <>
-      <section className="w-full">
+      <section className="w-full flex justify-center items-center">
         <div className="container">
-          <div className="flex flex-col items-center justify-center  w-full gap-8 ">
+          <div className="flex flex-col items-center justify-center w-full gap-8 ">
             <Image
               src={TextToImageLandingPageImage}
               alt={"Hero Gif"}

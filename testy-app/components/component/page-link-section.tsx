@@ -3,7 +3,7 @@
  * @see https://v0.dev/t/6Q7ipvRT6FP
  */
 import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 import {
   BsFiletypePng,
   BsFiletypePdf,
@@ -22,9 +22,14 @@ export function PageLinkSection() {
         <p className="text-gray-600">
           Convert your files to PNG format with just a single click.
         </p>
-        <Button className="mt-4" variant="secondary">
-          Convert to PNG
-        </Button>
+        <Link href={"/text-to-png"}>
+          <Button
+            className="mt-4 w-32 text-center bg-purple-500 text-white font-sans font-semibold shadow-md rounded-md"
+            variant="secondary"
+          >
+            Convert to PNG
+          </Button>
+        </Link>
       </div>
       <div className="text-center">
         <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-yellow-200 flex justify-center items-center">
@@ -34,9 +39,14 @@ export function PageLinkSection() {
         <p className="text-gray-600">
           Get your files in JPG format with our super-fast conversion tool.
         </p>
-        <Button className="mt-4" variant="secondary">
-          Convert to JPG
-        </Button>
+        <Link href={"/text-to-jpg"}>
+          <Button
+            className="mt-4 w-32 text-center bg-purple-500 text-white font-sans font-semibold shadow-md rounded-md"
+            variant="secondary"
+          >
+            Convert to JPG
+          </Button>
+        </Link>
       </div>
       <div className="text-center">
         <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-green-200 flex justify-center items-center">
@@ -46,21 +56,31 @@ export function PageLinkSection() {
         <p className="text-gray-600">
           Choose SVG format for scalable vector graphics conversion.
         </p>
-        <Button className="mt-4" variant="secondary">
-          Convert to SVG
-        </Button>
+        <Link href={"text-to-svg"}>
+          <Button
+            className="mt-4 w-32 text-center bg-purple-500 text-white font-sans font-semibold shadow-md rounded-md"
+            variant="secondary"
+          >
+            Convert to SVG
+          </Button>
+        </Link>
       </div>
       <div className="text-center">
         <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-pink-200 flex justify-center items-center">
           <BsFiletypePdf className="text-pink-600 text-2xl " />
         </div>
-        <h3 className="mb-2 text-lg font-semibold">PDF to HTML Conversion</h3>
+        <h3 className="mb-2 text-lg font-semibold">PDF to HTML </h3>
         <p className="text-gray-600">
           Convert your PDF files to HTML format with our easy-to-use converter.
         </p>
-        <Button className="mt-4" variant="secondary">
-          Convert PDF to HTML
-        </Button>
+        <Link href={"pdf-to-html"}>
+          <Button
+            className="mt-4 w-32 text-center bg-purple-500 text-white font-sans font-semibold shadow-md rounded-md"
+            variant="secondary"
+          >
+            PDF to HTML
+          </Button>
+        </Link>
       </div>
     </div>
   );
