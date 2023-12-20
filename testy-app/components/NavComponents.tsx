@@ -4,7 +4,7 @@ import { FcMultipleCameras } from "react-icons/fc";
 const Nav = () => {
   return (
     <>
-      <header className="px-4 py-5 lg:px-6 h-14 flex items-center shadow-lg">
+      <header className="px-4 py-5 lg:px-6 h-14 flex items-center shadow-lg border-b-2 border-black">
         <Link className="flex items-center justify-center" href="#">
           <FcMultipleCameras className="text-4xl" />
           <span className="sr-only">Acme Inc</span>
@@ -37,7 +37,7 @@ const Nav = () => {
         </nav>
       </header>
 
-      {/* <div className="bg-[#A648FE] h-1 w-full"></div> */}
+      <div className="pt-3 bg-white"></div>
     </>
   );
 };

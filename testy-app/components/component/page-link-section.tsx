@@ -1,15 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  BsFiletypePng,
-  BsFiletypePdf,
-  BsFiletypeSvg,
-  BsFiletypeJpg,
-} from "react-icons/bs";
+import { BsFiletypePng, BsFiletypeSvg, BsFiletypeJpg } from "react-icons/bs";
 
 export function PageLinkSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-28 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 ">
       <div className="flex justify-center items-center mb-5">
         <div className="text-center w-4/5">
           <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-blue-200 flex justify-center items-center">
@@ -29,7 +24,7 @@ export function PageLinkSection() {
           </Link>
         </div>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center mb-5">
         <div className="text-center w-4/5">
           <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-yellow-200 flex justify-center items-center">
             <BsFiletypeJpg className="text-yellow-600 text-2xl font-extrabold" />
@@ -48,7 +43,7 @@ export function PageLinkSection() {
           </Link>
         </div>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center mb-5">
         <div className="text-center w-4/5">
           <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-green-200 flex justify-center items-center">
             <BsFiletypeSvg className="text-green-600 text-2xl font-extrabold" />
