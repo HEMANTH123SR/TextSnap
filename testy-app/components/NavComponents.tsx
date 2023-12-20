@@ -36,7 +36,7 @@ const Nav = () => {
           </Link>
         </nav>
       </header>
-      <div className="py-3"></div>
+
       {/* <div className="bg-[#A648FE] h-1 w-full"></div> */}
     </>
   );

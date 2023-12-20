@@ -1,9 +1,10 @@
-import React from 'react'
-
+import { TextEditor } from "@/components/component/text-editor";
 const Page = () => {
   return (
-    <div>Page</div>
-  )
-}
+    <div>
+      <TextEditor />
+    </div>
+  );
+};
 
-export default Page
+export default Page;
