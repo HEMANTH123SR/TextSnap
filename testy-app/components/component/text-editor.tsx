@@ -1,5 +1,6 @@
 "use client";
 import React, { useCallback, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { CardHeader, CardContent, Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,8 +10,11 @@ import {
   SelectContent,
   Select,
 } from "@/components/ui/select";
-import { toPng } from "html-to-image";
+import { toPng, toJpeg, toSvg } from "html-to-image";
 export function TextEditor() {
+  const pathName = usePathname();
+  console.log(pathName);
+
   enum TextColour {
     Blue = "text-blue-600",
     White = "text-white",
@@ -63,6 +67,7 @@ export function TextEditor() {
     if (ref.current === null) {
       return;
     }
+
     toPng(ref.current, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement("a");
@@ -74,8 +79,49 @@ export function TextEditor() {
         console.log(err);
       });
   }, [ref]);
+  const downloadDivToJpeg = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+    toJpeg(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "my-image-name.jpg";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
+  const downloadDivToSvg = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+    toSvg(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "my-image-name.svg";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
+  const downloadTextToImg = () => {
+    if (pathName == "/text-to-jpg") {
+      downloadDivToJpeg();
+    }
+    if (pathName == "/text-to-png") {
+      downloadDivToPng();
+    }
+    if (pathName == "/text-to-svg") {
+      downloadDivToSvg();
+    }
+  };
   return (
-    <main className="h-screen bg-white ">
+    <main className=" bg-white ">
       <Card className="w-full ">
         <CardHeader className="flex flex-row justify-between items-center">
           <h2 className="text-xl text-black font-sans font-semibold  p-2">
@@ -83,7 +129,7 @@ export function TextEditor() {
           </h2>
           <button
             className="w-24 text-center bg-black font-sans text-white p-2 rounded-md font-semibold"
-            onClick={downloadDivToPng}
+            onClick={downloadTextToImg}
           >
             Download
           </button>
@@ -172,17 +218,19 @@ export function TextEditor() {
             <Select></Select>
           </div>
 
-          <div className="border border-gray-300 rounded-md" ref={ref}>
-            <textarea
-              typeof="string"
-              aria-label="Text editor area"
-              className={`w-full h-64 p-2 resize-none ${textColour} ${textFont} ${background}  ${fontSize} `}
-              placeholder="Start writing here..."
-              value={textInput}
-              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                setTextInput(e.target.value);
-              }}
-            />
+          <div className="w-full h-[400px]">
+            <div className="border border-gray-300 rounded-md h-full" ref={ref}>
+              <textarea
+                typeof="string"
+                aria-label="Text editor area"
+                className={`w-full h-full p-2 resize-none ${textColour} ${textFont} ${background}  ${fontSize} `}
+                placeholder="Start writing here..."
+                value={textInput}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                  setTextInput(e.target.value);
+                }}
+              />
+            </div>
           </div>
         </CardContent>
       </Card>
